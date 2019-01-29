@@ -1,85 +1,73 @@
 [
-    {
-        "command": "hello",
-        "description": "Respond when a human says hello!",
+  {
+    "id": "0-0-0-0-0",
+    "command": "hello",
+    "description": "Respond when a human says hello!",
+    "script": [
+      {
+        "topic": "default",
         "script": [
-            {
-                "topic": "default",
-                "script": [
-                    {
-                        "text": [
-                            "Hello Human!",
-                            "How do you do?",
-                            "Nice to meet you Human.",
-                            "Hi!",
-                            "How’s it going?",
-                            "Hey!",
-                            "Hey there!",
-                            "Howdy!",
-                            "G`day human!",
-                            "Salut!",
-                            "Ciao!",
-                            "Hola!",
-                            "Shalom!"
-                        ],
-                        "quick_replies": [
-                            {
-                                "title": "Hello",
-                                "payload": "hello",
-                                "content_type": "text"
-                            },
-                            {
-                                "title": "Test",
-                                "payload": "Test",
-                                "content_type": "text"
-                            }
-                        ],
-                        "collect": {
-                            "key": "temporary_value",
-                            "options": [
-                                {
-                                    "default": true,
-                                    "pattern": "default",
-                                    "action": "next"
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "action": "complete"
-                    }
-                ]
+          {
+            "text": [
+              "Hello! Please provide your login id."
+            ],
+            "collect": {
+              "key": "loginid",
+              "options": [
+                {
+                  "default": true,
+                  "pattern": "default",
+                  "action": "next"
+                }
+              ]
             }
-        ],
-        "triggers": [
-            {
-                "pattern": "hell.*",
-                "type": "regexp",
-                "id": "495"
-            },
-            {
-                "type": "string",
-                "pattern": "hello"
-            },
-            {
-                "type": "string",
-                "pattern": "hey"
-            },
-            {
-                "type": "string",
-                "pattern": "hi"
-            },
-            {
-                "type": "string",
-                "pattern": "howdy"
-            }
-        ],
-        "variables": [
-            {
-                "name": "temporary_value",
-                "type": "string",
-                "id": 205
-            }
+          },
+          {
+            "text": [
+              "The specified login id is {{vars.loginid}}"
+            ]
+          },
+          {
+            "action": "complete"
+          }
         ]
-    }
+      }
+    ],
+    "triggers": [
+      {
+        "pattern": "hell.*",
+        "type": "regexp",
+        "id": "495"
+      },
+      {
+        "type": "string",
+        "pattern": "hello"
+      },
+      {
+        "type": "string",
+        "pattern": "hey"
+      },
+      {
+        "type": "string",
+        "pattern": "hi"
+      },
+      {
+        "type": "string",
+        "pattern": "howdy"
+      }
+    ],
+    "variables": [
+      {
+        "name": "loginid",
+        "type": "string",
+        "id": 240
+      },
+      {
+        "name": "temporary_value",
+        "type": "string",
+        "id": 426
+      }
+    ],
+    "modified": "2019-01-29T11:05:40.877Z"
+  }
 ]
